@@ -45,6 +45,7 @@ set background=dark
 try
   colorscheme solarized8
 catch /^Vim\%((\a\+)\)\=:E185/
+  echo "Can't set colorscheme to solarized8!"
   colorscheme default
 endtry
 
