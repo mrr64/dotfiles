@@ -1,0 +1,15 @@
+[user]
+	name = Michael Rozdilski
+	email = mrrdev@mrr64.net
+[core]
+	editor = vi
+[alias]
+	hist = log --all --graph --decorate --oneline 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false

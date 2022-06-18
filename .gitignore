@@ -1,0 +1,6 @@
+# minpac will manage any packages we use in vim/nvim
+# so there is no need to save them in git because
+# we can recreate them. Indeed, our vim script will
+# load minpac whenever it is missing.
+#
+vim/.vim/pack/minpac/

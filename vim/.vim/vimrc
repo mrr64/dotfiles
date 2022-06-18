@@ -1,0 +1,75 @@
+" Try to load minpac, ignore errors
+try
+  packadd minpac
+catch ""
+  "minpac not available so install it
+  silent !git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+  packadd minpac
+  echo "minpack added, ':PackUpdate' to load plugins"
+endtry
+
+
+if !exists('g:loaded_minpac')
+  " minpac is not available
+  " Settings for plugin-less environment
+else
+
+  call minpac#init()
+  call minpac#add('k-takata/minpac',{'type':'opt'})
+
+  command! PackUpdate call minpac#update()
+  command! PackClean call minpac#clean()
+
+  " Use minpac for plugin management
+  " All minpac plugins are in the minpac bundle
+
+  " Plug-ins
+  call minpac#add('sgur/vim-editorconfig')
+  call minpac#add('tpope/vim-unimpaired')
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('tpope/vim-surround')
+  call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('glensc/vim-syntax-lighttpd')
+  call minpac#add('pangloss/vim-javascript')
+  " Use solarized on a true color terminal
+  call minpac#add('lifepillar/vim-solarized8')
+
+endif
+
+
+" Colorschemes
+set termguicolors
+set background=dark
+
+try
+  colorscheme solarized8
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
+
+" use 'jk' for <esc>
+inoremap jk <Esc>
+
+" Line numbers
+set number
+
+" Window navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-k>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with spacebar
+noremap <space> za
+
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set autoindent
+set smartindent
+set cindent
