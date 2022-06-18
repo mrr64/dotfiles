@@ -1,10 +1,21 @@
 # dotfiles
-A collection of my configuration files for use on all platforms
+A collection of configuration files for linux platforms
+
 # Usage
-On a new system ensure the following is installed
+On a new system, install `git` and `stow`
+```
+$ apt install git
+$ apt install stow
+```
 
-- GNU stow (apt install stow)
-- git (apt install git)
+Now run the dotfiles setup
 
-  close the dotfiles repository
-  in dot files stow pkg where pkg is any of the directoryies. To do everything use stow */
+```
+$ cd ~
+$ git clone https://github.com/mrr64/dotfiles.git
+$ cd ~/dotfiles
+$ ./setup.sh
+```
+
+# vim/nvim Setup
+`vim/nvim` packages are maintained using the `minpac` plugin. There is no need to keep `vim` plugins in `dotfiles`, so the `.gitignore` file ignores the `.vim/pack/minpac` directory and all sub directories. The `minpac` plugin will be installed automatically by `vimrc` the first time `vim/nvim` is run. After that, issuing the `PackUpdate` command will re-install all the plugins in the `vimrc` file.
