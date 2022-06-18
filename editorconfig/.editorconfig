@@ -1,0 +1,35 @@
+# EditorConfig - generic specification of editor options
+# vim/neovim has the editorconfig plugin in vimrc
+# Vscode uses this as well
+
+# Don't look any higher than this .editorconfig file which is in
+# our home directory
+root = true
+
+# Unix-style newlines with a newline ending
+# for every file
+[*]
+end_of_line = lf
+charset = utf-8
+
+[*.c]
+indent_style = space
+indent_size = 4
+
+[*.{js,json}]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+[*.{js,py}]
+charset = utf-8
+
+[*.yml ]
+indent_style = space
+indent_style = 2
