@@ -69,9 +69,9 @@ git_data() {
 
 
 if [ "$color_prompt" = yes ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\];\[\033[01;34m\]\W\[\033[01;91m\]$(git_data)\[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;91m\]$(git_data)\[\033[00m\]\$ '
 else
-	PS1='${debian_chroot:+($debian_chroot)}\u@\h;\W$(git_data)\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(git_data)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -140,3 +140,6 @@ bind '"jk":vi-movement-mode'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias ssh='echo "(no strict host checking)" && ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias ssh-copy-id='echo "(no strict host checking)" && ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
