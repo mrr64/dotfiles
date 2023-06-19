@@ -67,11 +67,22 @@ git_data() {
   fi
 }
 
-
 if [ "$color_prompt" = yes ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;91m\]$(git_data)\[\033[00m\]\$ '
+
+	# old prompt PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;91m\]$(git_data)\[\033[00m\]\$ '
+
+  prompt_color='\[\033[;32m\]'
+  info_color='\[\033[1;34m\]'
+
+  PS1=$prompt_color'\n┌──${debian_chroot:+(debian_chroot)──}('$info_color'\u@\h'$prompt_color')─[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└──\[\033[01;91m\]$(git_data)'$info_color'\$\[\033[0m\] '
+
+  unset prompt_color
+  unset info_color
+
 else
-	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(git_data)\$ '
+
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\u$(git_data)\$ '
+
 fi
 unset color_prompt force_color_prompt
 
@@ -146,3 +157,4 @@ alias ssh='echo "(no strict host checking)" && ssh -o StrictHostKeyChecking=no -
 alias ssh-copy-id='echo "(no strict host checking)" && ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
 alias dirs_by_size="sudo du -h --max-depth=1 | sort -h"
+alias docker-ls="sudo docker container ls --format='\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n'"
