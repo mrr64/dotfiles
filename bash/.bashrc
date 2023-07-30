@@ -57,14 +57,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source "~/bin/gitprompt.sh"
+GIT_PS1_SHOWDIRTYSTATE=true      # */+ unstaged/staged
+GIT_PS1_SHOWSTASHSTATE=true      # $   stashed
+GIT_PS1_SHOWUNTRACKEDFILES=true  # %   untracked
 # add git info to prompt
 git_data() {
-  if [ -d .git ]
-  then
-    git status 2> /dev/null | grep "working tree clean" &> /dev/null
-    if [ $? -ne 0 ]; then STATUS="!"; else STATUS=""; fi
-    echo -n " (`git branch 2>/dev/null | grep '^*' | colrm 1 2`$STATUS)"
-  fi
+# 
+#if [ -d .git ]
+#then
+#   git status 2> /dev/null | grep "working tree clean" &> /dev/null
+#   if [ $? -ne 0 ]; then STATUS="!"; else STATUS=""; fi
+#   echo -n " (`git branch 2>/dev/null | grep '^*' | colrm 1 2`$STATUS)"
+#fi
+__git_ps1 "(%s)" 
 }
 
 if [ "$color_prompt" = yes ]; then
@@ -74,7 +80,8 @@ if [ "$color_prompt" = yes ]; then
   prompt_color='\[\033[;32m\]'
   info_color='\[\033[1;34m\]'
 
-  PS1=$prompt_color'\n┌──${debian_chroot:+(debian_chroot)──}('$info_color'\u@\h'$prompt_color')─[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└──\[\033[01;91m\]$(git_data)'$info_color'\$\[\033[0m\] '
+ # PS1=$prompt_color'\n┌──${debian_chroot:+(debian_chroot)──}('$info_color'\u@\h'$prompt_color')─[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└──\[\033[01;91m\]$(git_data)'$info_color'\$\[\033[0m\] '
+  PS1=$prompt_color'\n┌── ${debian_chroot:+(debian_chroot)──}('$info_color'\u@\h'$prompt_color')─[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└──\[\033[01;91m\] $(git_data)'$info_color'\$\[\033[0m\] '
 
   unset prompt_color
   unset info_color
