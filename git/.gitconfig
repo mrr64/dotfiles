@@ -1,5 +1,5 @@
 [user]
-	name = Michael Rozdilski
+	name = mrr64
 	email = mrrdev@mrr64.net
 [core]
 	editor = vi
@@ -13,3 +13,5 @@
 	tool = vimdiff
 [mergetool]
 	prompt = false
+[init]
+	defaultBranch = master
