@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-source "~/bin/gitprompt.sh"
+source ~/bin/gitprompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true      # */+ unstaged/staged
 GIT_PS1_SHOWSTASHSTATE=true      # $   stashed
 GIT_PS1_SHOWUNTRACKEDFILES=true  # %   untracked
