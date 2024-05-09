@@ -4,3 +4,5 @@
 # load minpac whenever it is missing.
 #
 vim/.vim/pack/minpac/
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/lazyvim.json

@@ -166,3 +166,5 @@ alias ssh-copy-id='echo "(no strict host checking)" && ssh-copy-id -o StrictHost
 
 alias dirs_by_size="sudo du -h --max-depth=1 | sort -h"
 alias docker-ls="sudo docker container ls --format='\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n'"
+alias vi=nvim
+alias vim=nvim
