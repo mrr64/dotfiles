@@ -6,3 +6,7 @@
 vim/.vim/pack/minpac/
 nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/lazyvim.json
+
+vim/dot-vim/pack/minpac/
+nvim/dot-config/nvim/lazy-lock.json
+nvim/dot-config/nvim/lazyvim.json
