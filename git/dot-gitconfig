@@ -2,7 +2,7 @@
 	name = mrr64
 	email = mrrdev@mrr64.net
 [core]
-	editor = vi
+	editor = nvim
 [alias]
 	hist = log --all --graph --decorate --oneline 
 [diff]
